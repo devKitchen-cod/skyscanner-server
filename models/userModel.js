@@ -2,8 +2,7 @@ const mongoose = require('mongoose')
 // import mongoose from 'mongoose'
 
 const User = new mongoose.Schema({
-  name: {type: String },
-  
+  name: {type: String },  
   email:{type: String },
   password: {type: String }
 })

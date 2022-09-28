@@ -4,18 +4,20 @@ const userModel = require("../models/userModel");
 
 module.exports.createUser = async function (req, res) {
 	const { name, email, password } = req.body;
+	console.log(req)
 	try {
 		const r = await CheckDuplicate(name);
 		if (r) {
 			res.status(500).json("err");
 		} else {
 			const user = await userModel.create({ name, email, password });
+			console.log(user)
 			const token = jwt.sign(
 				{ email: email, name: name, password: password },
 				key.jwt,
 				{ expiresIn: 60 * 60 }
 			);
-			res.status(200).json(user);
+			res.status(200).json({token: token});
 		}
 		console.log(r);
 	} catch (error) {
