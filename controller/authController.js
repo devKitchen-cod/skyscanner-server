@@ -56,6 +56,7 @@ module.exports.loginUser = async (req, res) => {
 	const token = jwt.sign({ email: email, password: password }, key.jwt, {
 		expiresIn: 60 * 60,
 	});
+	console.log(token)
 	t ? res.status(200).json(token) : res.status(500).json("500");
 };
 
