@@ -1,9 +1,12 @@
 const mongoose = require('mongoose')
 
 const Airport = new mongoose.Schema({
-  PlacId: {type: String},
-  PlaceName: {type: String},
-  CountryID: {type: String},
+  name: {type: String},
+  iata_code: {type: String},
+  icao_code: {type: String},
+  lat: {type: Number},
+  lng: {type: String},
+  country_code: {type: String}
   
 })
 module.exports = mongoose.model('Airport', Airport)

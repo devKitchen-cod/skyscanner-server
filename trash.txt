@@ -1,0 +1,53 @@
+// module.exports.createUser = async function (req, res) {
+// 	const { name, email, password, keyadmin } = req.body;
+// 	const check = await CheckDuplicate(name);
+// 	const check_adminKey = false;
+// 	keyadmin !== "" && keyadmin === ADMINKEY
+// 		? (console.log("good"), (check_adminKey = true))
+// 		: console.log("");
+// 	try {
+// 		// console.log("adm", ADMINKEY);
+// 		if (check_adminKey) {
+// 			const role = "admin";
+// 			if (check) {
+// 				res.status(500).json("err");
+// 			} else {
+// 				const pass = HashPassword(password);
+// 				const user = await userModel.create({ name, email, pass, role });
+// 				console.log("admin == ", user);
+// 				const token = jwt.sign(
+// 					{
+// 						email: email,
+// 						name: name,
+// 						password: pass,
+// 						role: role,
+// 						key: adminKey,
+// 					},
+// 					key.jwt,
+// 					{ expiresIn: 60 * 60 }
+// 				);
+// 				res.status(200).json({ token: token, user });
+// 			}
+// 		} else {
+// 			if (check) {
+// 				res.status(500).json("err");
+// 			} else {
+// 				const pass = HashPassword(password);
+
+// 				const user = await userModel.create({ name, email, password: pass });
+// 				console.log("user == ", user);
+// 				const token = jwt.sign(
+// 					{ email: email, name: name, password: pass },
+// 					key.jwt,
+// 					{ expiresIn: 60 * 60 }
+// 				);
+// 				res.status(200).json({ token: token, user });
+// 			}
+// 		}
+
+// 		console.log(r);
+// 	} catch (error) {
+// 		res.status(500).json("error = ", error);
+// 		console.log("error", error);
+// 	}
+// };
