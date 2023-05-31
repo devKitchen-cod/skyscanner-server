@@ -2,7 +2,6 @@ const axios = require("axios");
 
 module.exports.searchAirport = async function (req, res) {
 	const obj = req.body;
-	// console.log("req == ", obj);
 
 	try {
 		const result = await axios.get(

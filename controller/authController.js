@@ -21,7 +21,7 @@ module.exports.createUser = async function (req, res) {
 				role: role,
 			});
 
-			console.log("admin == ", user);
+			// console.log("admin == ", user);
 			const token = jwt.sign(
 				{
 					email: email,

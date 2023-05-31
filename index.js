@@ -11,6 +11,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(require("morgan")("dev"));
+
 const usersRouter = require("./routes/user-route");
 app.use("/api", usersRouter);
 const start = async () => {
@@ -19,7 +20,7 @@ const start = async () => {
 		console.log("Success");
 		app.listen(PORT, () => console.log(`Server strated on ${PORT}`));
 	} catch (e) {
-		console.log("asd", e);
+		console.log("error", e);
 	}
 };
 start();
