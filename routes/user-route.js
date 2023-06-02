@@ -12,11 +12,11 @@ router.post('/auth-user-create', authController.createUser)
 router.post('/auth-user-update', authController.updateUser)
 router.post('/auth-user-login', authController.loginUser)
 router.post('/getadmin', authController.getAdmin)
-router.post('/addNewField', serviceAppController.addCityToAirport)
+// router.post('/addNewField', serviceAppController.addCityToAirport)
 
 router.get('/getCity', getDataController.getCity)
 router.get('/getAirports', getDataController.getAirpots)
-
+router.post('/getFindedAirports', getDataController.getFindAirports)
 // router.get('/getdata', cityController.city)
 // router.post('/searchAiroport', flyController.searchAirport)
 // router.post('/getairport', cityController.city)
