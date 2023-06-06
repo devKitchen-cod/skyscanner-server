@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const flightModel = new mongoose.Schema({
+  name: {type: String},
   origin_airport: { type: String },
   distination_airport: { type: String },
   origin_city: { type: String },

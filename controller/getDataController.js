@@ -2,6 +2,7 @@ const { default: axios } = require("axios");
 const cityModel = require("../models/cityModel");
 const fs = require("fs");
 const airportsModel = require("../models/airportsModel");
+const flightModel = require("../models/flightModel");
 
 module.exports.getCity = async function (req, res) {
   try {
@@ -40,3 +41,14 @@ module.exports.getFindAirports = async function (req, res) {
     console.log("error", error);
   }
 };
+
+module.exports.getFlights = async function (req, res) {
+  console.log('asd')
+  try {
+    const flights = await flightModel.find({})
+    console.log('flights', flights)
+    return res.status(200).json(flights)
+  } catch (error) {
+    console.log('error', error)
+  }
+}

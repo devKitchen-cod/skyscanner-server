@@ -12,9 +12,11 @@ module.exports.addCountry = async function (req, res) {
 
 module.exports.addFlight = async function (req, res) {
   const { obj } = req.body;
+  // console.log("[req]", req.body);
   try {
-    console.log("[req]", obj);
+    // console.log("[req]", obj);
     const flight = await flightModel.create({
+      name: `${obj.origin_city} - ${obj.distination_city}`,
       origin_airport: obj.origin_airport,
       distination_airport: obj.distination_airport,
       origin_city: obj.origin_city,
