@@ -52,3 +52,12 @@ module.exports.getFlights = async function (req, res) {
     console.log('error', error)
   }
 }
+module.exports.getFindAirport = async function (req, res) {
+  const {city} = req.body
+  try {
+    const airports = await airportsModel.find({city: city})
+    return res.status(200).json(airports)
+  } catch (error) {
+    console.log('error', error)
+  }
+}
