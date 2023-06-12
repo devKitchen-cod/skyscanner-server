@@ -11,7 +11,7 @@ module.exports.getCity = async function(req, res){
       // fs.writeFile
       // city = JSON.stringify(city)
       // fs.writeFileSync('airoports_data.json', JSON.stringify(airport));
-      console.log('city', city)
+      // console.log('city', city)
       res.status(200).json(city)
       // res.send(airport)
 
