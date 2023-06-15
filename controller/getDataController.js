@@ -1,8 +1,18 @@
-const { default: axios } = require("axios");
-const cityModel = require("../models/cityModel");
-const fs = require("fs");
-const airportsModel = require("../models/airportsModel");
-const flightModel = require("../models/flightModel");
+const CountryModel = require('../models/newCountryModel')
+const CityModel = require('../models/newCityModel')
+const AirportModel = require('../models/newAirportModel')
+
+
+module.exports.getCountry = async function(req, res){ 
+  try {
+    console.log('START!')
+    const country = await CountryModel.find({})
+    return res.status(200).json(country)
+  } catch (error) {
+    console.log('error', error)
+    req.status(500).json(error)
+  }
+}
 
 module.exports.getCity = async function (req, res) {
   try {
@@ -63,75 +73,49 @@ module.exports.getFindAirport = async function (req, res) {
 };
 
 module.exports.updateAirports = async function (req, res) {
+  // let state;
+  // let code_arr = [];
+  // let c_name_arr = [];
   try {
-    console.log("GOOD");
-    // const query = { country: { $exists: false } };
-    const airports = await airportsModel.find({ country: { $exists: false } });
-    console.log("airports", airports.length);
+  //   console.log("GOOD");
+  //   const CODE = "US";
+  //   const codes = await airportsModel.find({
+  //     country: { $exists: false },
+  //   });
+  //   console.log(codes.length);
 
-    let country_name = await axios.get(
-      `https://restcountries.com/v3.1/alpha/US`
-    );
-    console.log("country_name", country_name.data);
+  //   codes.map((item) => {
+  //     // console.log('CODES', item.country_code)
+  //     let t = item.country_code;
+  //     code_arr.push(t);
+  //   });
 
-    // console.log("length", airports.length);
+  //   const airports = await airportsModel.find({
+  //     country: { $exists: false },
+  //   });
 
-    // let obj = airports.map(async (item) => {
-    //   let country_name = await axios.get(
-    //     `https://restcountries.com/v3.1/alpha/${item.country_code}`
-    //   );
-
-    //   let temp = country_name.data;
-
-    //   temp.map(async (item1) => {
-    //     console.log("NAME COUNTRY", item1.name.common);
-    //     let res = await airportsModel.updateOne(
-    //       { country_code: item.country_code },
-    //       { $set: { country: item1.name.common } }
-    //     );
-    //     console.log("RES OF INSERT", res);
-    //   });
-    // });
-    // console.log("Success!");
-    //==
-    let obj = airports.map(async (item) => {
-      let country_name = await axios.get(
-        `https://restcountries.com/v3.1/alpha/${item.country_code}`
-      );
-
-      let temp = country_name.data;
-      temp.map(async (item1) => {
-        console.log("NAME COUNTRY", item1.name.common);
-        try {
-          let res = await airportsModel.updateOne(
-            { country_code: item.country_code },
-            { $set: { country: item1.name.common } }
-          );
-          console.log("RES OF INSERT", res);
-        } catch (error) {
-          console.log("error", error);
-        //  let error1 = JSON.stringify(error)
-          // fs.writeFile("./ERROR_LIST.json", error1, "utf8", (err) => {
-          //   if (err) {
-          //     console.error(err);
-          //     return;
-          //   }
-          // });
-        }
-      });
-    });
-    console.log("Success!");
-
-    // const country = await axios.get('https://restcountries.com/v3.1/alpha/')
-
-    // let write = JSON.stringify(airports);
-    // fs.writeFile("./COUNTRY.json", write, "utf8", (err) => {
-    //   if (err) {
-    //     console.error(err);
-    //     return;
-    //   }
-    // });
-
+  //   code_arr.map(async (item_code) => {
+  //     let country_name = await axios.get( 
+  //       `https://restcountries.com/v3.1/alpha/${item_code}`
+  //     );
+  //     let temp = country_name.data;
+  //     temp.map((item) => { 
+  //       // console.log("item.name.common", item.name.common);
+  //       state = item.name.common;
+  //     });   
+   
+  //     // console.log("state", state);
+  //     airports.map(async () => {   
+  //       let res = await airportsModel.updateMany(
+  //         { country_code: item_code }, 
+  //         { $set: { country: state } }     
+  //       );   
+  //       // console.log(res);      
+  //     });        
+  //   });     
+      
+  //   console.log("Success!");    
+ 
     return res.status(200);
   } catch (error) {
     console.log(error);

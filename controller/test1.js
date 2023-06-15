@@ -1,3 +1,105 @@
+
+    // const old_city = await cityModel.find({});
+    // console.log(old_city.length);
+    // const old_airport = await airportsModel.find({lat: 40.71427, lng: "-74.00597"});
+    // console.log(res.data);
+
+    // console.log(res.data)
+    // let t = res
+    // console.log(t.length)
+
+    // old_airport.map((item) => {
+    //   // Country.findOne(
+    //   //   { country_code: item.country_code },
+    //   //   async (err, finded_country) => {
+    //   //     if (err) {
+    //   //       console.log("SYS Error", err);
+    //   //     }
+    //   //     if (!finded_country) {
+    //   //       console.log("NO DATA");
+    //   //     }
+
+    //   //     // let res = await axios.get(
+    //   //     //   `http://api.geonames.org/findNearbyJSON?iata=${item.iata_code}&username=sqwerew32qwe`
+    //   //     // );
+    //   //     // console.log('res', res)
+    //   //     // console.log('finded_country', finded_country)
+    //   //     // Airport.create({
+    //   //     //   name: item.name,
+    //   //     //   city:'id',
+    //   //     //   country_code: 'fin,',
+    //   //     //   iata_code: 'item.iata_code',
+    //   //     //   lat: 'item.lat',
+    //   //     //   lng: 'item.lng',
+    //   //     // });
+    //   //   }
+    //   // );
+    //   //de239c645e
+    //   //ea0fb1de7a23df5
+    //   // Country.findOne(
+    //   //   { country_code: item.country_code },
+    //   //   (err, finded_country) => {
+    //   //     if (err) {
+    //   //       console.log("SYS Error", err);
+    //   //     }
+    //   //     if (!finded_country) {
+    //   //       console.log("NO DATA");
+    //   //     }
+
+    //   //     City.create(
+    //   //       {
+    //   //         name: item.name,
+    //   //         country: finded_country._id,
+    //   //         city_code: item.city_code,
+    //   //       },
+    //   //       (err) => {
+    //   //         if (err) {
+    //   //           console.log("SAVE ERROR", err);
+    //   //           return;
+    //   //         }
+    //   //         console.log("CITY SAVED");
+    //   //       }
+    //   //     );
+    //   //   }
+    //   // );
+    // });
+
+    // old_city.map(async (item) => {
+    //   let country_name = await axios.get(
+    //     `https://restcountries.com/v3.1/alpha/${item.country_code}`
+    //   );
+    //   console.log('country_name', country_name)
+    //   let state
+    //   country_name.data.map((item) => {
+    //     state = item.name.common
+    //   })
+    //   const country = await Country.find({})
+
+    //   country.map()
+    //   const res = await City.create(
+    //     {
+    //       name: item.name,
+    //       country_code: item.country_code,
+    //     },
+    //     (err, created) => {
+    //       if (err) {
+    //         if (err.code === 11000) {
+    //           console.log("Такой док уже есть");
+    //         } else {
+    //           console.log("error");
+    //         }
+    //         return;
+    //       }
+    //       console.log('200 createdCountry', created)
+    //     }
+    //   );
+    // });
+
+
+
+
+
+
 // //how to create simple server in nodejs express?
 // //
 // //When you grab the code, all you will have to do is drag your (unzipped) project folder into your code editor and run the command:
