@@ -1,6 +1,7 @@
 const CountryModel = require('../models/newCountryModel')
 const CityModel = require('../models/newCityModel')
 const AirportModel = require('../models/newAirportModel')
+const flightModel = require('../models/flightModel')
 
 
 module.exports.getCountry = async function(req, res){ 
@@ -16,7 +17,7 @@ module.exports.getCountry = async function(req, res){
 
 module.exports.getCity = async function (req, res) {
   try {
-    const city = await cityModel.find({});
+    const city = await CityModel.find({});
     return res.status(200).json(city);
   } catch (error) {
     console.log(error);
@@ -26,7 +27,7 @@ module.exports.getCity = async function (req, res) {
 
 module.exports.getAirpots = async function (req, res) {
   try {
-    const airports = await airportsModel.find({});
+    const airports = await AirportModel.find({});
     return res.status(200).json(airports);
   } catch (error) {
     console.log("error", error);
