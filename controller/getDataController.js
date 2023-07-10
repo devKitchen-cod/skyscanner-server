@@ -16,9 +16,18 @@ module.exports.getCountry = async function(req, res){
 }
 
 module.exports.getCity = async function (req, res) {
+  console.log('req',req.body )
+  const {origin, distination} = req.body
+  console.log('country', origin, distination)
   try {
-    const city = await CityModel.find({});
-    return res.status(200).json(city);
+    const origin_city = await CityModel.find({country: origin});
+    console.log('data', city)
+    const distination_city = await CityModel.find({country: distination})
+    let result = {
+      origin_city,
+      distination_city
+    }
+    return res.status(200).json(result);
   } catch (error) {
     console.log(error);
     req.status(500).json(error);
