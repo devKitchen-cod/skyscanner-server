@@ -5,7 +5,6 @@ const flightModel = require("../models/flightModel");
 
 module.exports.getCountry = async function (req, res) {
   try {
-    console.log("START!");
     const country = await CountryModel.find({});
     return res.status(200).json(country);
   } catch (error) {
@@ -14,15 +13,13 @@ module.exports.getCountry = async function (req, res) {
   }
 };
 
+
 module.exports.getCity = async function (req, res) {
-  console.log("req", req.body);
   const { origin, distination } = req.body;
-  console.log("country", origin, distination);
   try {
     const origin_city = await CityModel.find({ country: origin });
 
     const distination_city = await CityModel.find({ country: distination });
-    // console.log("data", origin_city, distination_city);
     let result = {
       origin_city,
       distination_city,
@@ -45,7 +42,6 @@ module.exports.getAirpots = async function (req, res) {
 
 module.exports.getFindAirports = async function (req, res) {
   const { origin, distination } = req.body;
-  console.log("origin_city", origin, distination);
   try {
     const origin_airports = await AirportModel.find({ city: origin });
     const distination_airports = await AirportModel.find({
@@ -63,10 +59,8 @@ module.exports.getFindAirports = async function (req, res) {
 };
 
 module.exports.getFlights = async function (req, res) {
-  // console.log('asd')
   try {
     const flights = await flightModel.find({});
-    // console.log('flights', flights)
     return res.status(200).json(flights);
   } catch (error) {
     console.log("error", error);
@@ -81,6 +75,15 @@ module.exports.getFindAirport = async function (req, res) {
     console.log("error", error);
   }
 };
+
+module.exports.getCity_Airport = async function(req, res) {
+  try {
+    console.log('req', req.bodd)
+
+  } catch (error) {
+    console.log(error)
+  }
+}
 
 module.exports.updateAirports = async function (req, res) {
   // let state;

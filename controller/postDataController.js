@@ -11,20 +11,29 @@ module.exports.addCountry = async function (req, res) {
 };
 
 module.exports.addFlight = async function (req, res) {
-  const { obj } = req.body;
+  const { params, country, city, airport,  } = req.body;
   // console.log("[req]", req.body);
   try {
-    // console.log("[req]", obj);
+    console.log("[req]", params);
     const flight = await flightModel.create({
-      name: `${obj.origin_city} - ${obj.distination_city}`,
-      origin_airport: obj.origin_airport,
-      distination_airport: obj.distination_airport,
-      origin_city: obj.origin_city,
-      distination_city: obj.distination_city,
-      price: obj.price,
-      origin_time: obj.origin_time,
-      distination_time: obj.distination_time,
-      flight_time: obj.flight_time,
+      name: `${city.origin_city.name} - ${city.distination_city.name}`,
+      origin_airport_name: airport.origin_airport.name,
+      origin_airport_id: airport.origin_airport.id,
+
+      distination_airport_name: airport.distination_airport.name,
+      distination_airport_id: airport.distination_airport.id,
+
+      origin_city_name: city.origin_city.name,
+      origin_city_id: city.origin_city.id,
+
+      distination_city_name: city.distination_city.name,
+      distination_city_id: city.distination_city.id,
+
+      price: params.price,
+      origin_time: params.origin_time,
+      distination_time: params.distination_time,
+      flight_time: params.flight_time,
+      note: params.note
     });
     res.status(200).json("Good");
   } catch (error) {
