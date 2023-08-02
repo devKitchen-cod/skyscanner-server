@@ -70,7 +70,7 @@ module.exports.updateUser = async function (req, res) {
 		res.status(200).json(update_user);
 	} catch (e) {
 		console.log(e);
-	}
+	}    
 };
 
 module.exports.deleteUser = async function (req, res) {};

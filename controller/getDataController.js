@@ -13,8 +13,18 @@ module.exports.getCountry = async function (req, res) {
   }
 };
 
-
 module.exports.getCity = async function (req, res) {
+  const {id} = req.body
+  try {
+    console.log('req', id)
+    const citys = await CityModel.find({country: id})
+    return res.status(200).json(citys)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+module.exports.getDirection = async function (req, res) {
   const { origin, distination } = req.body;
   try {
     const origin_city = await CityModel.find({ country: origin });
@@ -76,14 +86,7 @@ module.exports.getFindAirport = async function (req, res) {
   }
 };
 
-module.exports.getCity_Airport = async function(req, res) {
-  try {
-    console.log('req', req.bodd)
 
-  } catch (error) {
-    console.log(error)
-  }
-}
 
 module.exports.updateAirports = async function (req, res) {
   // let state;

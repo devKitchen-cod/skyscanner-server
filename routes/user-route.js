@@ -13,6 +13,7 @@ router.post('/getadmin', authController.getAdmin)
 router.post('/addFlight', postDataController.addFlight)
 router.post('/getFindedAirports', getDataController.getFindAirports)
 router.post('/getCity', getDataController.getCity)
+router.post('/getDirection', getDataController.getDirection)
 
 router.get('/getCountry', getDataController.getCountry)
 router.get('/getAirports', getDataController.getAirpots)
