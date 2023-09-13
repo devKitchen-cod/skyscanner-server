@@ -5,6 +5,7 @@ const authController = require('../controller/authController')
 const getDataController = require('../controller/getDataController')
 const postDataController = require('../controller/postDataController')
 // const serviceAppController = require('../controller/serviceAppController')
+const search = require('../controller/users_controllers/search_controller')
 
 router.post('/auth-user-create', authController.createUser)
 router.post('/auth-user-update', authController.updateUser)
@@ -14,6 +15,8 @@ router.post('/addFlight', postDataController.addFlight)
 router.post('/getFindedAirports', getDataController.getFindAirports)
 router.post('/getCity', getDataController.getCity)
 router.post('/getDirection', getDataController.getDirection)
+
+router.post('/search', search.Search)
 
 router.get('/getCountry', getDataController.getCountry)
 router.get('/getAirports', getDataController.getAirpots)

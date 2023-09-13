@@ -4,8 +4,11 @@ const AirportModel = require("../models/newAirportModel");
 const flightModel = require("../models/flightModel");
 
 module.exports.getCountry = async function (req, res) {
+  // const name = req.body
   try {
     const country = await CountryModel.find({});
+    // const city = await CityModel.find({$where: {name: name}})
+    console.log('country')
     return res.status(200).json(country);
   } catch (error) {
     console.log("error", error);
@@ -26,6 +29,7 @@ module.exports.getCity = async function (req, res) {
 
 module.exports.getDirection = async function (req, res) {
   const { origin, distination } = req.body;
+  console.log(req.body)
   try {
     const origin_city = await CityModel.find({ country: origin });
 
