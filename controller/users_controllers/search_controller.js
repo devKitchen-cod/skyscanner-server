@@ -1,6 +1,6 @@
-const CountryModel = require("../../models/newCityModel");
-const CityModel = require("../../models/newCityModel");
-const AirportModel = require("../../models/newAirportModel");
+// const CountryModel = require("../../models/newCityModel");
+// const CityModel = require("../../models/newCityModel");
+// const AirportModel = require("../../models/newAirportModel");
 
 module.exports.Search = async function (req, res) {
   const { value } = req.body;
