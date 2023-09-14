@@ -1,7 +1,7 @@
-const CountryModel = require("../models/newCountryModel");
-const CityModel = require("../models/newCityModel");
-const AirportModel = require("../models/newAirportModel");
-const flightModel = require("../models/flightModel");
+const CountryModel = require("../models/CountryModel");
+const CityModel = require("../models/CityModel");
+const AirportModel = require("../models/AirportModel");
+const flightModel = require("../models/FlightModel");
 
 module.exports.getCountry = async function (req, res) {
   try {
@@ -85,8 +85,6 @@ module.exports.getFindAirport = async function (req, res) {
     console.log("error", error);
   }
 };
-
-
 
 module.exports.updateAirports = async function (req, res) {
   // let state;

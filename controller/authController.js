@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 const key = require("../key/key");
-const userModel = require("../models/userModel");
+const userModel = require("../models/UserModel");
 const bcrypt = require("bcrypt");
 const adminKey = process.env.ADMINKEY;
 
