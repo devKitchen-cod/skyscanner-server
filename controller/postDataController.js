@@ -1,4 +1,4 @@
-const flightModel = require("../models/flightModel");
+const flightModel = require("../models/FlightModel");
 
 module.exports.addCountry = async function (req, res) {
   try {
