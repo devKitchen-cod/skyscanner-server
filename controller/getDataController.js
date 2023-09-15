@@ -8,7 +8,7 @@ module.exports.getCountry = async function (req, res) {
   try {
     const country = await CountryModel.find({});
     // const city = await CityModel.find({$where: {name: name}})
-    console.log('country')
+    console.log("country");
     return res.status(200).json(country);
   } catch (error) {
     console.log("error", error);
@@ -17,19 +17,19 @@ module.exports.getCountry = async function (req, res) {
 };
 
 module.exports.getCity = async function (req, res) {
-  const {id} = req.body
+  const { id } = req.body;
   try {
-    console.log('req', id)
-    const citys = await CityModel.find({country: id})
-    return res.status(200).json(citys)
+    console.log("req", id);
+    const citys = await CityModel.find({ country: id });
+    return res.status(200).json(citys);
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-}
+};
 
 module.exports.getDirection = async function (req, res) {
   const { origin, distination } = req.body;
-  console.log(req.body)
+  console.log(req.body);
   try {
     const origin_city = await CityModel.find({ country: origin });
 

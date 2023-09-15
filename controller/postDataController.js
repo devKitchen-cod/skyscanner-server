@@ -6,7 +6,7 @@ module.exports.addCountry = async function (req, res) {
     return res.status(200).json(city);
   } catch (error) {
     console.log(error);
-    req.status(500).json(error);
+    res.status(500).json(error);
   }
 };
 
