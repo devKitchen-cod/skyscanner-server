@@ -7,7 +7,7 @@ const countriesController = require('../controller/countries_controller')
 // const getDataController = require('../controller/getDataController')
 // const postDataController = require('../controller/postDataController')
 // const serviceAppController = require('../controller/serviceAppController')
-// const search = require('../controller/users_controllers/search_controller')
+const search = require('../controller/users_controllers/search_controller')
 
 router.post('/auth-user-create', authController.createUser)
 router.post('/auth-user-update', authController.updateUser)
@@ -19,7 +19,7 @@ router.post('/getadmin', authController.getAdmin)
 // router.post('/getCity', getDataController.getCity)
 // router.post('/getDirection', getDataController.getDirection)
 
-// router.post('/search', search.Search)
+router.post('/search', search.Search)
 
 router.get('/getAllCountries', countriesController.getAllCountries)
 router.post('/getCountryById', countriesController.getCountryById)
