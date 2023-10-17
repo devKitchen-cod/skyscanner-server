@@ -12,14 +12,13 @@ module.exports.Search = async function (req, res) {
     //   name: "Bergen",
     // }).populate("country");
     // await CityModel.populate
-    let searchTerm = 'G'
     const regex = new RegExp(`^${value}`, "i"); 
     const city_search_result = await CityModel.find({ name: regex });
     let result = []
-    city_search_result.map((item) => {
-      result.push({title: item.name})
+    city_search_result.map((item, key) => {
+      result.push({value: item.name, text: item.name, key: item.name })
     })
-    // console.log(city_search_result);
+    console.log(city_search_result);
     res.json(result);
   } catch (error) {
     console.log(error);
