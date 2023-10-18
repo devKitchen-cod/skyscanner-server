@@ -12,16 +12,28 @@ module.exports.Search = async function (req, res) {
     //   name: "Bergen",
     // }).populate("country");
     // await CityModel.populate
-    const regex = new RegExp(`^${value}`, "i"); 
-    const city_search_result = await CityModel.find({ name: regex });
-    let result = []
+    const regex = new RegExp(`^${value}`, "i");
+    const city_search_result = await CityModel.find({ name: regex }).populate('country');
+    console.log('[city_search_result]', city_search_result)
+    let result = [];
     city_search_result.map((item, key) => {
-      result.push({value: item.name, text: item.name, key: item.name })
-    })
-    console.log(city_search_result);
+
+      result.push({ value: item.name, text: item.name, key: item.id, country: item.country });
+    });
+    // console.log(city_search_result);
     res.json(result);
   } catch (error) {
     console.log(error);
-    res.status(500);
+    return res.status(500).json(JSON.stringify(error));
+  }
+};
+
+module.exports.SearchFlights = async function (req, res) {
+  const { from, to, type } = req.body;
+  try {
+    console.log('[params]', params)
+
+  } catch (error) {
+    return res.status(500).json(JSON.stringify(error));
   }
 };
